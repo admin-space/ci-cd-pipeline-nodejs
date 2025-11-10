@@ -5,13 +5,13 @@ FROM node:18
 WORKDIR /app
 
 # Copy package files and install dependencies
-COPY app/package*.json ./
+COPY package*.json ./
 RUN npm install
 
-# Copy all source code from the app folder
-COPY app ./
+# Copy all source code
+COPY . .
 
-# Expose port (if your app listens on 3000)
+# Expose port
 EXPOSE 3000
 
 # Start the app
