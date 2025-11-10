@@ -5,16 +5,16 @@ FROM node:18
 WORKDIR /app
 
 # Copy package files first (for caching)
-COPY package*.json ./
+COPY app/package*.json ./
 
 # Install dependencies
 RUN npm install
 
 # Copy the rest of the app
-COPY . .
+COPY app ./
 
 # Expose the port your app runs on
 EXPOSE 3000
 
 # Command to start your app
-CMD ["node", "app/app.js"]
+CMD ["node", "app.js"]
